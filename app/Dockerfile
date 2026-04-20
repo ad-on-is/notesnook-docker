@@ -11,7 +11,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends git \
 #RUN git clone --depth=1 https://github.com/beardedtek/notesnook.git .
 RUN git config --global user.email "you@example.com"
 RUN git config --global user.name "Your Name"
-RUN git clone --branch v3.3.14 --single-branch https://github.com/streetwriters/notesnook.git .
+RUN git clone --branch v3.3.15 --single-branch https://github.com/streetwriters/notesnook.git .
 #RUN git remote add beardedtek https://github.com/beardedtek/notesnook.git
 #RUN git fetch beardedtek
 #RUN git cherry-pick  -X theirs 027d602
