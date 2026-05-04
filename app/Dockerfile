@@ -11,25 +11,13 @@ RUN apt-get update && apt-get install -y --no-install-recommends git \
 #RUN git clone --depth=1 https://github.com/beardedtek/notesnook.git .
 RUN git config --global user.email "you@example.com"
 RUN git config --global user.name "Your Name"
-RUN git clone --branch v3.3.15 --single-branch https://github.com/streetwriters/notesnook.git .
+RUN git clone --branch v3.3.17 --single-branch https://github.com/streetwriters/notesnook.git .
 #RUN git remote add beardedtek https://github.com/beardedtek/notesnook.git
 #RUN git fetch beardedtek
 #RUN git cherry-pick  -X theirs 027d602
 
 # Install dependencies (monorepo root)
 RUN npm ci
-
-# Accept build-time environment variables for server URLs
-ARG NN_API_HOST
-ARG NN_AUTH_HOST
-ARG NN_SSE_HOST
-ARG NN_MONOGRAPH_HOST
-
-# Set environment variables for the build process
-ENV NN_API_HOST=${NN_API_HOST}
-ENV NN_AUTH_HOST=${NN_AUTH_HOST}
-ENV NN_SSE_HOST=${NN_SSE_HOST}
-ENV NN_MONOGRAPH_HOST=${NN_MONOGRAPH_HOST}
 
 # Build just the web app
 RUN npm run build:web
